@@ -1,18 +1,34 @@
+html {
+    scroll-behavior: smooth;
+}
+p {
+    font-family: "Overpass Mono";
+}
+a {
+    color: rgb(223, 223, 223);
+}
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 100%;
     width: 100%;
-    background-color: rgb(15, 7, 14);
+    background-color: rgb(27, 27, 27);
     scroll-behavior: smooth;
+    animation: scrolleffect 1s ease-in-out;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll)* 0.45s);
+}
+@keyframes scrolleffect {
+    to {
+        background-color: rgb(255, 255, 255);
+    }
+    50% {
+        background-color: rgb(255, 255, 255);
+    }
 }
 h1 {
     font-family: "Gloria Hallelujah", cursive;
-    color: white;
-    width: auto;
-    font-size: 50px;
     margin: 0;
-    height: 80px;
     position: relative;
 }
 .background {
@@ -23,36 +39,39 @@ h1 {
     animation-name: rotate;
     animation-timing-function: linear;
     position: fixed;
-    bottom: 50vh;
+    bottom: 0vh;
     left: 0%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-}
-@keyframes rotate {
-    0% {
-        transform: rotate(45deg);
-    }
-    100% {
-        transform: rotate(45deg);
-    }
+    transform: translate(0%, 0%);
+    z-index: 1;
 }
 .contentbox {
-z-index: 999;
-background-color: rgb(26, 17, 23);
-border: solid rgb(44, 31, 40);
-position: fixed;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-width: 30vmax;
-height: 70vh;
-border-radius: 40px;
-margin: 0;
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 92vh;
+    border-radius: 40px;
+    backdrop-filter: blur(5px);
+    margin: 0;
+}
+
+.contentbox::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    border-radius: 40px;
+    filter: opacity(80%);
+    z-index: -1;
 }
 .more {
     z-index: 999;
     background-color: rgb(26, 17, 23);
-    border: solid rgb(44, 31, 40);
     position: fixed;
     top: 88%;
     left: 50%;
@@ -63,6 +82,9 @@ margin: 0;
     margin-top: calc(10vh / 2);
     font-family: "Overpass Mono";
     vertical-align: middle;
+    text-align: center;
+    font-size: 3vh;
+    display: flexbox;
     }
 .content {
     color: white;
@@ -71,53 +93,145 @@ margin: 0;
     margin-top: 10px;
     vertical-align: middle;
 }
+div.scrolldown {
+filter: invert(100%);
+}
+#pfp {
+    max-height: 50vh;
+    width: auto;
+    aspect-ratio: 1/1;
+    border-radius: 50%; 
+    border: 5px solid rgb(255, 207, 245);
+    object-fit: cover;
+}
+
 .welcome {
-    animation: 5s ease-in-out welcome forwards;
+    animation: 2s ease-in welcome forwards;
     font-family: "Overpass Mono";
-    width: 100%;
-    height: 100vh;
-    z-index: 23432324324234234324324;
+    width: 60%;
+    height: 10vh;
+    z-index: 4;
     position: absolute;
     text-align: center;
-    bottom: 0;
+    top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    border-radius: 0px 0px 20px 20px;
+    left: 20%;
+    
 }
 @keyframes welcome {
     0% {
-        background-color: black;
-        opacity: 100%;
-    }
-    50% {
-        background-color: rgb(255, 255, 255);
-    }
-    80% {
-        opacity: 100%;
-        transform: scale(1);
     }
     90% {
-        transform: scale(1);
+        transform: translateY(0%);
     }
     100% {
         background-color: white;
         visibility: hidden;
-        opacity: 0;
-        transform: scale(0);
+        transform: translateY(-100%);
     }
 }
 #sillycat {
-    animation: 5s ease-in-out appear forwards;
+    height: 8vh;
+    position: absolute;
+    margin-left: 20px;
+    top: 1vh;
 }
-@keyframes appear {
+.therot {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 5;
+    position: fixed;
+    animation: 0.8s ease-in-out fadein forwards;
+}
+
+@keyframes fadein {
     0% {
-        opacity: 0;
+        opacity: 100%;
     }
-    80% {
+    50% {
         opacity: 100%;
     }
     100% {
         opacity: 0%;
+        visibility: hidden;
     }
+}
+.portfolio {
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(255, 255, 255, 0.738);
+    backdrop-filter: blur(5px);
+    position: absolute;
+    z-index: 2;
+    margin-top: 215vh;
+    color: black;
+    text-align: center;
+    font-size: 4vh;
+}
+.portfoliocontent {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+}
+.more {
+    width: 80%;
+    height: 97vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2;
+    position: absolute;
+    margin-top: 70vh;
+    backdrop-filter: blur(5px);
+}
+.moreflex {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    z-index: 3;
+}
+.project {
+    color: #ffffff;
+    width: 50vh;
+    background-color: rgb(33, 33, 33);
+    padding:10px;
+    margin: 10px;
+    border-radius: 10px;
+    height: 70vh;
+}
+.project:hover {
+    width: 52vh;
+    height: 72vh;
+    transition: 0.3s;
+    background-color: rgb(47, 47, 47);
+}
+#stupidembedpicdoesntwork {
+    position: relative;
+    object-fit: cover;
+    height: 55vh;
+    width: 100%;
+}
+#portfolio {
+    background-color: rgb(253, 253, 253);
+    border: 2px solid rgb(210, 210, 210);
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    background-color: rgb(210, 210, 210);
+    color: rgb(48, 48, 48);
+    text-align: center;
+    font-family: "Overpass Mono";
+    text-align: right;
+    font-size: 3vh;
 }

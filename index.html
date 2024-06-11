@@ -1,57 +1,79 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <title>nixora's bio. :P</title>
+    <title>nixora's bio!</title>
     <script src="./js/css-doodle.min.js"></script>
+    <script src="./js/main.js"></script>
     <link rel="stylesheet" type="text/css" href="./css/main.css">
     <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Afacad">
     <link  rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah">
     <link  rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700">
-    <script src="./js/main.js"></script>
 </head>
 <body>
+  <div class="therot"></div>
     <div class="welcome">
-      <img src="./img/welcome.gif" width="400vmax" height="400vmax" id="sillycat" alt="welcome to meh site"/>
-      <h2 style="color: rgb(0, 0, 0);">sorry yall in the dark <br>(get flashbanged XD)</h2>
-      <p style="color: rgb(0, 0, 0);">ill add more stuff later<p>
+       <h2 style="color: rgb(0, 0, 0);">welcome to my site!! :D <span><img src="/img/welcome.gif" id="sillycat"/></span></h2>
     </div>
     <div class="topbar">
 
     </div>
     <div class="contentbox">
         <div class="content">
-            <h1 style="margin: 0;">Nixora!!</h1>
+            <h1 style="margin: -2vh; font-size: 70px; padding: 0;">Nixora!</h1>
             <p style="margin-top: 0;">he/him</p>
-            <img src="https://avatars.githubusercontent.com/u/99024112" alt="my pfp!!" style="height: 25vmax; width: 25vw; border-radius: 50%; aspect-ratio: 1 / 1; border: 5px solid rgb(44, 31, 40);"/>
-            <p>your local idiot!!! :D</p>
+            <img src="https://github.com/unxw.png" alt="my pfp!!" id="pfp"/>
+            <p style="font-size: 2.5vh;"><a href="https://instagram.com/camwym">insta 📸</a> | <a href="https://github.com/unxw">github 🤖</a> | @nixora on discord (ew)</p>
+            <a href="#more">
+              <div class="scrolldown">
+                <img width="50vw" height="50vh" src="/img/arrow.png"/>
+              </div>
+            </a>    
         </div>
     </div>
-    <a href="https://study.nixora.space"><div class="more">
-      <strong><h2 style="color: rgb(204, 150, 255); text-align: center;">here's THE site if you're looking for it!</h2></strong>
-      </div></a>
-
+    <div class="more" id="more">
+      <h1 style="color: white;">My projects! (for now)</h1>
+      <div class="moreflex">
+        <div class="project">
+          <a style="text-decoration: none; text-decoration-line: none;" href="https://study.nixora.space">
+          <h2>THE website.</h2>
+          <img src="./img/squishcat.gif" alt="my pfp!!" id="stupidembedpicdoesntwork"/>
+        </div>
+      </a>
+    </div>
+    <a href="#portfolio">
+    <div class="scrolldown">
+          <img width="50vw" height="50vh" src="/img/arrow.png"/>
+        </div>
+      </a>
+    </div>
+    <div class="portfolio">
+      <h1 id="portfolio">My portfolio!<img src="./img/jumpcat.gif" width="50vh" height="50vh" style="margin-left: 15px;"/></h1>
+      <h2 style="font-family: Overpass Mono; font-size: 4vh; margin-top: 7vh;">ill do the rest later got lazy lmao</h2>
+      <h2 style="font-family: Overpass Mono; font-size: 4vh; margin-top: 7vh;">For any further info, contact me! (at top of page)</h2>
+      <footer>made with love 💖 by nixora, 2024. <a href="#sillycat">back to top</a></footer>
+    </div>
     <div class="background">
         <css-doodle grid="20x20">
-            :doodle {
-              @size: 150% 150%; /* width: 100% height: 100%; */
-              gap: 10px;
-              pointer-events: none;
-              z-index: 0;
-            }
-            clip-path: polygon(
-    50% 0%, 61% 35%, 98% 35%, 68% 57%, 
-    79% 91%, 50% 70%, 21% 91%, 32% 57%, 
-    2% 35%, 39% 35%
-  );
-            background: hsl(@rand(310, 330), 80%, @rand(75%, 100%));
-            transform: scale(@rand(20%, 100%)) rotate(@rand(0deg, 360deg));
-            animation: fall @rand(30s, 45s) infinite linear;
-            @keyframes fall {
-              0% { transform: translateX(100vw) rotate(0deg); opacity: 0; }
-              50% { opacity: 1}
-              100% { transform: translateX(-100vw) translateY(100vh) rotate(@rand(-360deg, 360deg)); opacity: 0; }
-            }
+          :doodle {
+            @size: 150% 150%;
+            gap: 5px;
+            pointer-events: none;
+            z-index: 0;
+          }
+          clip-path: @shape(
+          points: 360;
+          r: .8 + cos(5t)*.18;
+          );
+          background: hsl(@rand(310, 330), 80%, @rand(60%, 100%));
+          transform: scale(@rand(20%, 100%)) rotate(@rand(0deg, 360deg));
+          animation: fall @rand(15s, 30s) infinite linear;
+          animation-delay: -15s;
+          @keyframes fall {
+            0% { transform: translateX(100vw) rotate(0deg); opacity: 0; }
+            50% { opacity: 1}
+            100% { transform: translateX(-110vw) translateY(100vh) rotate(@rand(-360deg, 360deg)); opacity: 0; }
+          }
           </css-doodle>
     </div>
 </body>
